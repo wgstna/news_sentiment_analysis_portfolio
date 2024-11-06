@@ -1,0 +1,6 @@
+numpy~=1.26.1
+requests~=2.31.0
+pandas~=2.1.2
+matplotlib~=3.8.1
+flask~=3.0.3
+textblob~=0.18.0.post0

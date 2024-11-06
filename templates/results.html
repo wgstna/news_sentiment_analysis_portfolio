@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container results">
+        <h1>Sentiment Analysis Results</h1>
+        <h2>Topic: "{{ topic }}"</h2>
+        <div class="result-card">
+            <h3>Average Sentiment</h3>
+            <p class="sentiment-score">{{ average_sentiment|round(2) }}</p>
+            <div class="sentiment-bar" style="--sentiment: {{ (average_sentiment + 1) / 2 }}"></div>
+            <p class="sentiment-explanation">
+                The average sentiment score ranges from -1 to 1, where -1 indicates very negative sentiment,
+                0 indicates neutral sentiment, and 1 indicates very positive sentiment.
+                This score represents the overall sentiment of the analyzed news articles.
+            </p>
+        </div>
+        <div class="result-card">
+            <h3>Sentiment Distribution</h3>
+            <ul class="sentiment-list">
+                {% for sentiment, percentage in sentiment_percentages.items() %}
+                <li>
+                    <span class="sentiment-label">{{ sentiment }}</span>
+                    <span class="sentiment-count">{{ percentage }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="result-card">
+            <h3>Sentiment Distribution Chart</h3>
+            <img src="data:image/png;base64,{{ plot_base64 }}" alt="Sentiment Distribution Plot" class="sentiment-plot">
+        </div>
+        <a href="/" class="back-link">Analyze Another Topic</a>
+    </div>
+</body>
+</html>

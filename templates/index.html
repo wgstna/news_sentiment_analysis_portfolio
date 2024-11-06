@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">News Sentiment Analyzer</h1>
+        <p class="description">Analyze the sentiment of news articles on any topic. Enter a keyword or phrase to get started.</p>
+        <form method="POST" class="search-form">
+            <input type="text" name="topic" placeholder="Enter a topic" required>
+            <button type="submit">Analyze</button>
+        </form>
+        <p class="data-source">Data sourced from NewsAPI</p>
+    </div>
+</body>
+</html>
